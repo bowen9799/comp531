@@ -1,0 +1,38 @@
+/* style sheet for hello-styled.html */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #07c3d6;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#sharepost {
+	color: red;
+	text-align: center;
+	border-style: outset;
+	background-color: #16e230;
+}
+
+.odd {
+	background-color: #ffd822;
+	padding: 2;
+}
+
+.even {
+	background-color: #b50890;
+	padding: 2;
+}

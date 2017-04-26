@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Bowen Liu">
+	<title>Facebook</title>
+</head>
+<body>
+
+	<p>Registration Page</p>
+	<form id="reg form" action="formProcessor.html" method="GET">
+		<p>account name
+		<input type="text" name="acc_name" pattern="^[a-zA-Z]+[a-zA-Z0-9]*" required></p>
+
+		<p>display name(optional)
+		<input type="text" name="disp_name"></p>
+
+		<p>email address
+		<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></p>
+
+		<p>phone number
+		<input type="text" name="phone_num" pattern="\d\d\d\d\d\d\d\d\d\d" required></p>
+
+		<p>date of birth(you must be 18yrs or older to register)
+		<input type="date" name="dob" max="1999-01-18" required></p>
+
+		<p>zipcode
+		<input type="text" name="zipcode" pattern="\d\d\d\d\d" required></p>
+
+		<p>password
+		<input type="text" name="password"></p>
+
+		<p>password confirmation
+		<input type="text" name="password_conf"></p>
+
+		<input type="reset" value="Clear">
+		<input type="submit" value="Submit" onclick="return validation()">
+		<input type="hidden" name="timestamp" id="date">
+	</form>
+	
+	<script type="text/javascript">
+		function validation() {
+
+    		var y = document.forms["reg form"]["password"].value;
+    		var z = document.forms["reg form"]["password_conf"].value;
+
+    		if (y != z){
+    			alert("The passwords do not match. You must confirm the password!")
+    			return false
+    		}
+
+		}
+
+		date = Date();
+		document.getElementById("date").value = String(date);
+
+	</script>
+</body>
+</html>

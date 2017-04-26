@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en=US">
+    <head>
+        <title>Bowen Liu's Webpage</title>
+
+        <meta charset="UTF-8">
+
+    </head>
+    <body onload="return to()">
+        <h1>Bowen Liu's Page</h1>
+        <p>My technical interests: I am very enthusiastic about algorithms, and am especially good at those in machine learning.
+            During my internship in summer 2016 at <a href="http://www.fujitsu.com/global/">Fujitsu</a> Corp., I wrote in <a href="https://www.python.org/">Python</a> more than 10 demos 
+            for algorithms of both supervised classification and unsupervised clustering, because I was 
+            highly interested in the mechanisms behind. Further, I optimized the performance of the 
+            demos by adjusting the variables in those ML algorithms, based on their performance in 
+            clustering/classifying Japanese FAQ pairs. During this period, I experimentally used many 
+            Python ML libraries, such as <a href="http://www.nltk.org/">NLTK</a>, <a href="http://scikit-learn.org/stable/">Scikit-Learn</a>, Orange, etc., and worked with NLTK and 
+            Orange intensively. In fact, my interests and initiatives in ML eventually made me the 
+            coordinator of the other two interns in my group.</p>
+        <p>My favorite sport is basketball. I ball almost everyday:</p>
+        <img src="https://i.ytimg.com/vi/GE4AWS4rdLY/hqdefault.jpg" title="Basketball">
+        <br/>
+        <textarea rows="4" cols="50" id="clear" name="comment" form="usrform">Type something here</textarea>
+        <br/>
+        <input type="submit">
+        <button onclick="return clearform()">Clear</button>
+        <br/>
+        <button onclick="st()">Pause Countdown</button>
+        <button onclick="return res()">Resume Countdown</button>
+        <span id="indicator">15</span>
+    </body>
+
+    <script type="text/javascript">
+
+        function clearform(){
+            document.getElementById("clear").innerHTML = "";
+        }
+
+        function to(){
+            setTimeout(function() {alert("The page will redirect when the counter reaches zero")}, 5000);
+        }
+
+        var timeinterval = setInterval(function(){cd()},1000);
+
+
+        function cd(){
+                document.getElementById("indicator").innerHTML = document.getElementById("indicator").innerHTML-1
+                if(document.getElementById("indicator").innerHTML <= 0){
+                    clearInterval(timeinterval);
+                    window.location = "https://www.clear.rice.edu/comp431/sample/hello.html";
+                };
+            }
+
+        function tocd(){to();cd()};
+
+        function st(){
+            clearInterval(timeinterval);
+        }
+
+        function res(){
+            var timeintervalnew = setInterval(function(){
+                document.getElementById("indicator").innerHTML = document.getElementById("indicator").innerHTML-1
+                if(document.getElementById("indicator").innerHTML <= 0){
+                    clearInterval(timeinterval);
+                    window.location = "https://www.clear.rice.edu/comp431/sample/hello.html";
+                };
+            },1000)
+        }
+    </script>
+</html>

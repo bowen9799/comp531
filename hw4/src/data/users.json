@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "username": "Guest",
+      "password": "visitor",
+      "avatar": "http://www.columbia.edu/cu/record/archives/vol21/vol21_iss24/record2124.11c.gif",
+      "email": "a@b.co",
+      "dob": "03/01/1997",
+      "phone": "123-123-1234",
+      "zipcode": "12345"
+    },
+    {
+      "username": "Guest",
+      "password": "visitor",
+      "avatar": "http://www.columbia.edu/cu/record/archives/vol21/vol21_iss24/record2124.11c.gif",
+      "email": "a@b.co",
+      "dob": "03/01/1997",
+      "phone": "123-123-1234",
+      "zipcode": "12345"
+    }
+  ],
+  "avatars":{
+    "guest": "http://www.columbia.edu/cu/record/archives/vol21/vol21_iss24/record2124.11c.gif",
+    "a": "http://www.columbia.edu/cu/record/archives/vol21/vol21_iss24/record2124.11c.gif",
+    "grader": "http://www.columbia.edu/cu/record/archives/vol21/vol21_iss24/record2124.11c.gif"
+  }
+}

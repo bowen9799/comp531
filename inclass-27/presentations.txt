@@ -1,0 +1,28 @@
+1. Which presentation was the most polished and delivered, and why?
+react native
+    The speaker clearly defined react native for developing native mobile app; he also tapped on the pros of react native:
+     	one language for all
+        bridge with native code
+        fast development
+    and that products like slack, instagram are using it, which made me realize how important this framework is.
+2. Which topic did you learn the most from and what did you learn?
+native app vs web app. I learnt:
+    native app 
+        cons:
+            hard to test and develop
+            develop one app for one platform
+        pros:
+            better performance
+    web app:
+        cons:
+	    easy to develop
+	    cross-platform
+        pros:
+	    performs badly compared to native app
+    hybrid: 
+        pros:
+            cross-platform
+            have access to native API
+3. Which talk did you like the best and why?
+Google Adwords: The speaker talked about the formula for paying ads: ad rank / quality score (ad rank = max bid * quality score), which is very interesting to me. He also tapped on behavioral ads and compromise of ads which were also fun to listen to.
+

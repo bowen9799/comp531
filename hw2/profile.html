@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Bowen Liu">
+	<title>Document</title>
+	<script src="profile.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+	<ul>
+	  <li><a class="active" href="#home">Ricebook</a></li>
+	  <li><a href="main.html">Main Page</a></li>
+	</ul>
+
+	<table>
+		<tr>
+			<td>Display Name</td>
+			<td><input type="text" name="name" pattern="^[a-zA-Z]+[a-zA-Z0-9]*"><div name="name" >Bowen Liu</div></td>
+		</tr>
+		<tr>
+			<td>Email Address</td>
+			<td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"><div name="email">bl19@rice.edu</div></td>
+		</tr>
+		<tr>
+			<td>Phone Number</td>
+			<td><input type="number" name="phone" pattern="\d\d\d\d\d\d\d\d\d\d"><div name="phone">12345678900</div></td>
+		</tr>
+		<tr>
+			<td>Zipcode</td>
+			<td><input type="number" name="zipcode" pattern="\d\d\d\d\d"><div name="zipcode">77005</div></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="password"><div name="password" style="visibility: hidden">123456</div></td>
+		</tr>
+		<tr>
+			<td>Password Confirmation</td>
+			<td><input type="password" name="pc"><div name="pc" style="visibility: hidden">123456</div></td>
+		</tr>
+	</table>
+	<button id="update">Update</button><br/>
+	<div id="alert"></div>
+</body>
+</html>

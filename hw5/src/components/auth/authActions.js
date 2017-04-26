@@ -1,0 +1,100 @@
+import { Locations } from '../app'
+import { ActionTypes, goto, login, register, fetchLoggedinUserData } from '../../actions'
+
+export function error(msg) {
+	return {
+		type: ActionTypes.ERROR,
+		message: msg
+	}
+}
+
+function registered() {
+	return {
+		type: ActionTypes.REGISTERED,
+		message: 'You can now login'
+	}
+}
+
+function loggedin(username) {
+	return {
+		type: ActionTypes.LOGIN,
+		username: username,
+		message: ''
+	}
+}
+
+function updateLoggedinUser(user) {
+	return {
+		type: ActionTypes.SET_LOGGEDINUSER,
+		user: user
+	}
+}
+
+export const updateDOBValidity = (dobInput) => {
+	return (dispatch) => {
+		let bd = new Date(dobInput.value)
+		let today = Date.now();
+		let diff = new Date(today - bd.getTime())
+		// Somehow 1970 is JS epoch time.
+		let age = diff.getUTCFullYear() - 1970
+		if (age >= 18) {
+			dobInput.setCustomValidity('')
+		} else {
+			dobInput.setCustomValidity("You must be at least 18 to register!")
+		}
+	}
+}
+
+export const submitAndRedirect = (fields) => {
+	return (dispatch) => {
+		register(fields.username.value, fields.email.value, fields.phone.value,
+			fields.dob.value, fields.zipcode.value, fields.pw.value).then(r => {
+			if (r.result && r.result == 'success') {
+				dispatch(registered())
+			} else {
+				dispatch(error(`"${r.message || 'Error'}" logging in`))
+			}
+		})
+	}
+}
+
+// validate password and password confirmation 
+export const CheckPWValidity = (fields) => {
+	return () => {
+		if (fields.pw.value !== fields.pwConfirm.value) {
+			fields.pwConfirm.setCustomValidity("Passwords don't match!")
+		} else {
+			fields.pwConfirm.setCustomValidity('')
+		}
+	}
+}
+
+export const getLoggedinUserData = (username) => {
+	return (dispatch, getState) => {
+		return fetchLoggedinUserData().then(r => {
+			if (!r.message) {
+				dispatch(updateLoggedinUser(r))
+			} else {
+				dispatch(error(`${r.message}, Error fetching user data`))
+			}
+		})
+	}
+}
+
+export const validateLogin = (values) => {
+	return (dispatch) => {
+		login(values.username.trim(), values.password.trim()).then(r => {
+			if (r.result && r.result == 'success' && r.username) {
+				// Calling login here will set landing page's state and reset error
+				// message
+				dispatch(getLoggedinUserData(r.username)).then(() =>
+					dispatch(loggedin(r.username))).then(() =>
+					dispatch(goto(Locations.MAIN_PAGE))).catch(r => {
+					dispatch(error(r.message))
+				})
+			} else {
+				dispatch(error(`"${r.message || 'Error'}" logging in`))
+			}
+		})
+	}
+}

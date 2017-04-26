@@ -1,0 +1,4 @@
+{
+"netid":"bl19",
+"mongourl":"mongodb://<dbuser>:<dbpassword>@ds145380.mlab.com:45380/bowen_1"
+}

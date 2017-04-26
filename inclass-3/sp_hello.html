@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>in class exercise 2</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Scott Pollack">
+
+</head>
+
+<body>
+
+<h1>In Class Exercise 3 (1/19)</h1>
+
+<table>
+	<tr>
+		<td>
+			Image index for your edification<br/>
+			<span id="imageIndex"></span>	
+		</td>
+		<td><img id="image" height="100px"></td>
+	</tr>
+</table>
+
+<h2>Countdown</h2>
+
+<p>
+Page will refresh in <span id="counter">15</span> seconds
+<button onclick="startCountdown()">Start Countdown</button>			
+<button onclick="stopCountdown()">Stop Countdown</button>
+</p>
+
+<p>
+<input id="newCountdownTime" type="text" value="15"> seconds
+<button onclick="resetCountdown()">Click to set countdown time.</button>
+</p>
+
+<p>
+Images are updated every <span id="updateRate"></span> seconds.  Does it seem jumpy to you?  What do you think is going on?
+</p>
+
+<h2>Legacy Page</h2>
+
+<table border="1">
+	<tr><td>Athenian</td><td>Owl</td></tr>
+	<tr><td colspan="2"><img src="http://explore.rice.edu/uploadedImages/Explore/Welcome_to_Rice/riceacademicseal1.jpg"></td></tr>
+</table>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<ul>
+	<li><a href="http://www.rice.edu">Rice</a></li>
+	<li><a href="http://www.chron.com">Houston Chronicle</a></li>
+	<li><a href="http://www.twitter.com">Twitter</a></li>
+	<li><a href="http://www.twosigma.com">TwoSigma</a></li>
+</ul>
+
+<textarea rows="10" cols="50">
+
+
+ --- Enter your message here --- 
+
+
+</textarea>
+
+<button onclick="clearMessage()">Clear</button>
+
+</body> <!-- turns out most browsers *ignore* the closing body tag... -->
+</html> <!-- and the closing html tag for that matter. -->
+<hr> <!-- that's because some *bad* web pages have stuff like this in them, dangling tags ... -->
+<h1>boo!</h1>
+
+<script>
+// with such a long script, we really want to move this
+// to a separate file.  But for this assignment it's internal
+
+// Remember: Comments here are for your education.
+// In general, only place comments if the code is otherwise
+// complicated to understand, i.e., and we want to know
+// *why* we are doing it a certain way, not *what* it does.
+
+// This is a "globally" defined function
+// It actually becomes a member of the window object
+// we'll be explicit about the others below.
+clearMessage = function() {	
+	document.getElementsByTagName("textarea")[0].value = "";	
+}
+
+// wait for the window to finish loading before we
+// start editing the images and text of the DOM.
+window.onload = function() {
+
+	// Unless there is a pressing need, never use Array()
+	// always instantiate an array using [] notation.	
+	var images = [
+		'//upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg',
+		'//upload.wikimedia.org/wikipedia/commons/6/67/JFK_at_Rice_University.jpg',
+		'//recreation.rice.edu/assets/0/100/145/190/3a6e620f-1b9d-4234-87db-3229e47a3d30.jpg',
+        '//upload.wikimedia.org/wikipedia/commons/3/3e/Rice_University_-_Rice_statue_with_Lovett_Hall.JPG',
+		'//upload.wikimedia.org/wikipedia/commons/c/ce/Rice_University_-_Arboretum.JPG'
+	];
+	var idx = 0;
+	// notice that these two variables are defined *inside* this
+	// function.  We'll talk more about scope later in class
+
+	// Annonymous functions are a good pattern to adopt
+	// E.g., they reduce namespace pollution.  
+	// Just be careful that you do not repeat yourself.
+
+	// here's a look to a future assignment: get a random number
+	var imageUpdateRate = (0.5*Math.random()+1) * 500;	
+	document.getElementById("updateRate").innerHTML = 
+		Math.floor(imageUpdateRate/1000.0*100)/100;
+
+	setInterval(function() {		
+		// be careful with terseness...
+		idx = (idx+1) % images.length;
+		document.getElementById("imageIndex").innerHTML = idx		
+		document.getElementById("image").src = images[idx]			
+	}, imageUpdateRate)	
+	// if we wanted to stop this timer, then we want
+	// to keep track of the id that is assigned
+
+	setTimeout(function() {
+		window.alert('Page will refresh when the counter reaches 0')
+	}, 5000);
+	// popups like these are generally discouraged 
+
+	var counter = 15;	
+	var countdownTimer = undefined // be explicit
+
+	var countDown = function() {
+		// be defensive!
+		if (counter <= 0) {	
+			// we should really clear the other timers too!
+			window.stopCountdown();
+
+			location = 'https://www.clear.rice.edu/comp431/sample/hello.html'
+		}
+		document.getElementById("counter").innerHTML = counter--;
+		// post-increment means we update innerHTML then
+		// reduce the value by one.
+	}
+
+	window.startCountdown = function() {
+		// be defensive!
+		if (!countdownTimer) {
+			countdownTimer = setInterval(countDown, 1000);
+		}
+	}
+
+	window.stopCountdown = function() {
+		clearInterval(countdownTimer)
+		countdownTimer = undefined // being defensive
+	}
+
+	window.resetCountdown = function() {
+		// really need validation on this!
+		counter = parseInt(document.getElementById("newCountdownTime").value)
+		// just in case it's not going already.
+		// not clear from the requirements if we want this or not.
+		startCountdown(); 
+	}
+
+	startCountdown()
+}
+</script>

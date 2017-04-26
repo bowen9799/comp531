@@ -1,0 +1,12 @@
+<testsuite name="Mocha Tests" tests="10" failures="0" errors="0" skipped="0" timestamp="Sat, 15 Apr 2017 00:43:53 GMT" time="39.225">
+<testcase classname="Frontend Test" name="Should Add New Article" time="1.703"/>
+<testcase classname="Frontend Test" name="Should Edit Article" time="1.723"/>
+<testcase classname="Frontend Test" name="Should Update Headline" time="1.828"/>
+<testcase classname="Frontend Test" name="Should Add Follower" time="1.219"/>
+<testcase classname="Frontend Test" name="Should Delete Follower" time="1.214"/>
+<testcase classname="Frontend Test" name="Should Search for &quot;Only One Article Like This&quot; and Verify Author" time="1.308"/>
+<testcase classname="Frontend Test" name="Should Update Email" time="9.57"/>
+<testcase classname="Frontend Test" name="Should Update Zipcode" time="8.908"/>
+<testcase classname="Frontend Test" name="Should Update Password" time="4.744"/>
+<testcase classname="shutdown" name="now" time="0.115"/>
+</testsuite>

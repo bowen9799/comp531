@@ -1,0 +1,15 @@
+.btn-primary {
+  margin-right: 15px;
+}
+.followingImage {
+  width: 50px;
+  max-width: 50px;
+  margin-right: 5px;
+}
+.postImage {
+  max-width: 170px;
+  max-height: 170px;
+  float: center;
+  padding: 0.5em;
+  margin: 0.5em;
+}

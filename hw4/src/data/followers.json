@@ -1,0 +1,19 @@
+{
+  "followers": {
+    "nextId": 4,
+    "followersList": [
+      {
+        "id": 1,
+        "name": "dl1"
+      },
+      {
+        "id": 2,
+        "name": "dl2"
+      },
+      {
+        "id": 3,
+        "name": "dl3"
+      }
+    ]
+  }
+}

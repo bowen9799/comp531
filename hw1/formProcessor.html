@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Bowen Liu">
+	<title>Document</title>
+</head>
+<body>
+	<table>
+		<caption>User Registration Data</caption>
+		<tr>
+			<td> Account Name</td>
+			<td id="acc_name"></td>
+		</tr>
+		<tr>
+			<td>Display Name(Optional)</td>
+			<td id="disp_name"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td id="email"></td>
+		</tr>
+		<tr>
+			<td>Date of Birth</td>
+			<td id="dob"></td>
+		</tr>
+		<tr>
+			<td>Phone Number</td>
+			<td id="phone_num"></td>
+		</tr>
+		<tr>
+			<td>Zipcode</td>
+			<td id="zipcode"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td id="password"></td>
+		</tr>
+		<tr>
+			<td>Password Confirmation</td>
+			<td id="password_conf"></td>
+		</tr>
+		<tr>
+			<td>Timestamp</td>
+			<td id="timestamp"></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		function getValue(name)
+		{
+		       var pairs = window.location.search.substring(1).split("&");
+		       for (var i=0;i<pairs.length;i++) {
+		               var pair = pairs[i].split("=");
+		               if(pair[0] == name){return pair[1];} //dont know how to use reduce due to the need of condition
+		       }
+		}
+		
+		// trying to use reduce...
+		// function getValue(name){
+		// window.location.search.substring(1).split("&").reduce(function(a,b){a.split("=")[0] == name ? return a.split("=")[1] : break}, "")
+		// }
+
+		document.getElementById("acc_name").innerHTML = getValue("acc_name");
+		document.getElementById("disp_name").innerHTML = getValue("disp_name");
+		document.getElementById("email").innerHTML = decodeURIComponent(getValue("email"));
+		document.getElementById("dob").innerHTML = getValue("dob");
+		document.getElementById("phone_num").innerHTML = getValue("phone_num");
+		document.getElementById("zipcode").innerHTML = getValue("zipcode");
+		document.getElementById("password").innerHTML = getValue("password");
+		document.getElementById("password_conf").innerHTML = getValue("password_conf");
+		document.getElementById("timestamp").innerHTML = decodeURIComponent(getValue("timestamp"));
+
+	</script>
+
+</body>
+</html>

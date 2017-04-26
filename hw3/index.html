@@ -1,0 +1,39 @@
+<!DOCTYPE html5>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Flippy Squares</title>
+		<meta name="description" content="Flip 'em and light 'em up!">
+		<meta name="author" content="bl19">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<h1>
+					Flippy Squares
+				</h1>
+			</header>
+			<aside class="score">
+				<ul>
+					<li>Score (Difficulty Level)：<span id="curLevel">1</span></li>
+					<li>Metric 1: Current Clicks：<span id="curClick">0</span></li>
+					<li>Metric 2 (used cookie): Total Clicks：<span id="totClick">0</span></li>
+				</ul>
+			</aside>
+
+			<section id="screen" class="screen" style="height: 594px;">
+				<div class="row">
+					<div id=1 class="square" style="width: 588px; height: 588px;"></div>
+				</div>
+			</section>
+
+			<footer>
+				<p>Click the squares to flip them. Once evey square turns green, you level up. My personal best is lv.9 -- beat this record!</p>
+				<p><a href="bl19@rice.edu">bl19@rice.edu</a></p>
+			</footer>
+		</div>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
