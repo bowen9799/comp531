@@ -25,7 +25,8 @@ export const goto = (target) => {
 	}
 }
 
-const url = 'https://pacific-ravine-20949.herokuapp.com'
+// const url = 'https://pacific-ravine-20949.herokuapp.com'
+const url = 'http://localhost:3000'
 
 const resource = (method, endpoint, payload, noStringify) => {
 	const options = {

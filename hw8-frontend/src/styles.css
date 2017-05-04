@@ -1,0 +1,26 @@
+.btn-primary {
+  margin-right: 5px;
+}
+
+.postImage {
+  max-width: 150px;
+  max-height: 150px;
+  float: left;
+  padding: 0.1em;
+  margin: 0.5em;
+}
+
+.followingImage {
+  width: 48px;
+  max-width: 48px;
+  margin-right: 5px;
+}
+
+.articleBody {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border: none;
+  max-height: 500px;
+  min-height: 100px;
+}
