@@ -1,18 +1,18 @@
 .btn-primary {
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .postImage {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 140px;
+  max-height: 140px;
   float: left;
   padding: 0.1em;
   margin: 0.5em;
 }
 
 .followingImage {
-  width: 48px;
-  max-width: 48px;
+  width: 50px;
+  max-width: 50px;
   margin-right: 5px;
 }
 
@@ -22,5 +22,5 @@
   display: block;
   border: none;
   max-height: 500px;
-  min-height: 100px;
+  min-height: 200px;
 }

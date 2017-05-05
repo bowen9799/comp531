@@ -41,12 +41,12 @@ export const AddArticle = ({ currentUser, addArticleWithImg, addArticle }) => {
                         </div>
                         <div className="input-group pull-right">
                             <input type="reset"
-                                className="btn btn-primary" value="Cancel" />
+                                className="btn btn-secondary" value="Cancel" />
                         </div>
                         <div className="input-group pull-right">
                             <input type="button"
-                                className="btn btn-primary"
-                                onClick={_addArticle} value="Add Article"
+                                className="btn btn-success"
+                                onClick={_addArticle} value="Post"
                                 id="addArticleButton" />
                         </div>
                     </div>

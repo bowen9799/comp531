@@ -72,7 +72,7 @@ export const getFollowers = () => {
     }
 }
 
-export const addFollowerAndUpdateArticles = (name) => {
+export const followUserAndUpdateFeed = (name) => {
 
     return (dispatch, getState) => {
         if (getState().main["followers"].some((follower) => {
@@ -115,7 +115,7 @@ export const removeFollowerAndUpdateArticles = (name) => {
     }
 }
 
-export const updateHeadlineOnServer = (text) => {
+export const serverUpdateHeadline = (text) => {
     return (dispatch) => {
         putHeadline(text).then(r => {
             if (!r.message) {

@@ -46,17 +46,17 @@ export const Article = ({ currentUser, article, ifShowComments, toggleComments, 
                     <br />
                     <div className="btn-group btn-group-justified">
                         <div className="btn-group">
-                            <label className="btn btn-primary"> Comment </label>
+                            <label className="btn btn-danger"> Comment </label>
                         </div>
                         <div className="btn-group">
                             <label className="btn btn-info" onClick={toggleComments}>
-                                {(ifShowComments && ifShowComments[article._id]) ? `Hide comments` : `Show comments (${article.comments.length})`}
+                                {(ifShowComments && ifShowComments[article._id]) ? `Hide comments` : `Comments (${article.comments.length})`}
                             </label>
                         </div>
                         {isEditable &&
                             <div className="btn-group btn-success">
                                 <label className="btn editButton" onClick={_editArticle}>
-                                    Edit Article </label>
+                                    Edit </label>
                             </div>
                         }
                     </div>

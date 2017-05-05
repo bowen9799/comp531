@@ -1,9 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { updatePWValidity, updateDOBValidity } from '../auth/authActions'
+import { putZipcode, putEmail, putAvatar } from '../../actions'
+import { updatePWValidity, updateDOBValidity, getLoggedinUserData } from '../auth/authActions'
 import { FormValidation, FormTypes } from '../auth/formValidation'
-import { updateUserOnServer } from './profileActions'
 import Navbar from '../navbar'
+
+export const updateUserOnServer = (fields) => {
+	return (dispatch) => {
+		putAvatar(fields.avatarFile).
+			then(putZipcode(fields.zipcode))
+			.then(putEmail(fields.email))
+			.then(dispatch(getLoggedinUserData()))
+			.catch(r => console.log(`${r.message} Profile update failure`))
+	}
+}
 
 export const Profile = ({ currentUser, update, validatePasswords }) => {
 	let imageSelector;
@@ -43,7 +53,7 @@ export const Profile = ({ currentUser, update, validatePasswords }) => {
 			<br />
 			<br />
 			<div className="row">
-				<div className="col-sm-3">
+				<div className="col-sm-4 panel pull-right">
 					<img className="img-responsive center-block"
 						src={currentUser.avatar} />
 					<div className="input-group">
@@ -53,11 +63,11 @@ export const Profile = ({ currentUser, update, validatePasswords }) => {
 							name="image"
 							ref={(node) => imageSelector = node} />
 					</div>
-					<p> If the page didn't update after you clicked "Update", 
-						clicking again should do the job. </p>
 				</div>
-				<div className="col-sm-8">
-					<h2> Here's your profile </h2>
+				<div className="col-sm-8 panel panel-default pull-left">
+					<div className="panel panel-heading well">
+					<h2> Your profile </h2>
+					</div>
 					<FormValidation
 						validatePasswords={validatePasswords}
 						validateDOB={_ => _}
